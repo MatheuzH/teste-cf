@@ -1,0 +1,109 @@
+.container {
+  width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f8f4ea;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  /* Adiciona para centralizar */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  text-align: center;
+  color: #7b3f00;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  max-width: 350px; /* Limita a largura máxima dos inputs */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.input-field::placeholder {
+  color: #aaa;
+}
+
+.user-list {
+  width: 100%;
+  max-width: 350px; /* Limita a largura máxima da lista de usuários */
+  margin-top: 30px;
+}
+
+.user-list h3 {
+  color: #7b3f00;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.user-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.error-message, .loading-message {
+  color: #b22222;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.user-registered {
+  text-align: center;
+  color: #228b22;
+  font-weight: bold;
+}
+
+.register-button {
+  width: 100%;
+  max-width: 350px; /* Limita a largura máxima do botão */
+  padding: 12px;
+  background-color: #7b3f00;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #603000;
+}
+
+
+.register-link-button {
+  width: 100%;
+  max-width: 350px;
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #7b3f00; /* Cor diferente para o botão de registro */
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-link-button:hover {
+  background-color: #603000; /* Cor diferente para o hover */
+}
