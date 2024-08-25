@@ -1,5 +1,5 @@
 # Introdução
-Esse é um sistema sobre controle de alimentos, usando next.js e hospedada no vercel. Desenvolvido para o teste tecnico da CF Sistemas. 
+Esse é um sistema sobre controle de alimentos, usando next.js e hospedado no vercel. Desenvolvido para o teste técnico da CF Sistemas. 
 
 ## Modo de uso
 Ao abrir a plataforma registre-se ou logue como um usuário. Você será redirecionado para a página de comidas, onde é permitido: 
@@ -24,7 +24,8 @@ Lembre-se que para rodar esse projeto localmente você deve ter as depêndencias
 
 Você primeiro deve clonar este repositório, em seguida em sua IDE, dentro da pasta do projeto, acesse o terminal e digite: npm install. 
 Após isso, digite: npm run dev 
-Seu projeto está localmente hospedado no endereço: http://localhost:3000
+
+Seu projeto estará localmente hospedado no endereço: http://localhost:3000
 
 ## Tecnologias utilizadas 
 1. TypeScript
