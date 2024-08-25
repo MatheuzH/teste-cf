@@ -40,11 +40,11 @@ export default function Login() {
   }, [userCollectionRef]);
 
   const Registrar = async () => {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        email,
-        password
-      );
+    const userCredential = await createUserWithEmailAndPassword(
+      email,
+      password
+    );
+    if (userCredential && userCredential.user) {
       const userId = userCredential.user.uid;
 
       await setDoc(doc(db, "Users", userId), {
@@ -58,13 +58,13 @@ export default function Login() {
       setMessage("Usuário registrado com sucesso!");
       setTimeout(() => {
         router.push("/foods");
-      }, 3000);
-    } catch (error) {
-      setMessage("Erro ao cadastrar usuário. Login ou Senha incorretos");
+      }, 2000);
+    } else {
+      setMessage("Erro ao registrar usuário. Por favor, tente novamente.");
       setTimeout(() => {
         router.push("/registro");
         window.location.reload();
-      }, 3000);
+      }, 2000);
     }
   };
 
@@ -134,7 +134,7 @@ export default function Login() {
       <Link href="/login">
         <button className="register-button">Login</button>
       </Link>
-      <p>A senha deve conter no mínimo 6 dígitos</p> 
+      <p>A senha deve conter no mínimo 6 dígitos</p>
     </div>
   );
 }
