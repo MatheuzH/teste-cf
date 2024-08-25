@@ -166,7 +166,7 @@ export default function Foods() {
               <option value="Disponível">Disponível</option>
               <option value="Indisponível">Indisponível</option>
             </select>
-            <button onClick={addFood}>Adicionar</button>
+            <button onClick={addFood} className="button-ad">Adicionar</button>
             <button onClick={() => setIsModalOpen(false)}>Cancelar</button>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function Foods() {
               <option value="Disponível">Disponível</option>
               <option value="Indisponível">Indisponível</option>
             </select>
-            <button onClick={updateFood}>Salvar Alterações</button>
+            <button onClick={updateFood} className="button-ad">Salvar Alterações</button>
             <button onClick={() => setIsEditModalOpen(false)}>Cancelar</button>
           </div>
         </div>
