@@ -13,20 +13,27 @@ export default function Login() {
   const router = useRouter();
 
   if (error) {
-    router.push("/registro"); 
+    setTimeout(() => {
+      router.push("/login");
+      window.location.reload();
+    }, 3000); 
+  
     return (
       <div className="error-message">
-        <p>Error: {error.message}</p>
+        <p>Login incorreto. Tente novamente.</p>
       </div>
     );
   }
-
+  
   if (loading) {
     return <p className="loading-message">Carregando...</p>;
   }
-
+  
   if (user) {
-    router.push("/foods"); 
+    setTimeout(() => {
+      router.push("/foods");
+    }, 2000); 
+  
     return (
       <div className="user-registered">
         <p>Usuário Conectado: {user.user.email}</p>

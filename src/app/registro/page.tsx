@@ -4,25 +4,28 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth, db } from "../services/firebaseConfig";
 import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import "./login.css";
 
 interface User {
   id: string;
   email?: string;
   name?: string;
-  telefone?: string;
-  cpf?: string;
+  telefone?: Number;
+  cpf?: Number;
   dataCriacao?: Date;
 }
 
 export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [name, setName] = useState<string>("");
-  const [telefone, setTelefone] = useState<string>("");
-  const [cpf, setCpf] = useState<string>("");
+  const [telefone, setTelefone] = useState<number>();
+  const [cpf, setCpf] = useState<number>();
   const [password, setPassword] = useState<string>("");
   const [users, setUsers] = useState<User[]>([]);
-  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+  const [message, setMessage] = useState<string | null>(null);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
   const userCollectionRef = collection(db, "Users");
 
@@ -38,7 +41,10 @@ export default function Login() {
 
   const Registrar = async () => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        email,
+        password
+      );
       const userId = userCredential.user.uid;
 
       await setDoc(doc(db, "Users", userId), {
@@ -49,27 +55,27 @@ export default function Login() {
         dataCriacao: new Date(),
       });
 
-      router.push("/registro");
-
+      setMessage("Usuário registrado com sucesso!");
+      setTimeout(() => {
+        router.push("/foods");
+      }, 3000);
     } catch (error) {
-      router.push("login");
+      setMessage("Erro ao cadastrar usuário. Login ou Senha incorretos");
+      setTimeout(() => {
+        router.push("/registro");
+        window.location.reload();
+      }, 3000);
     }
   };
 
-  if (error) {
-    return (
-      <div className="error-message">
-        <p>Error: {error.message}</p>
-      </div>
-    ); 
-  }
   if (loading) {
     return <p className="loading-message">Carregando...</p>;
   }
-  if (user) {
+
+  if (message) {
     return (
-      <div className="user-registered">
-        <p>Usuário Registrado: {user.user.email}</p>
+      <div className={`message ${error ? "error" : "success"}`}>
+        <p>{message}</p>
       </div>
     );
   }
@@ -93,16 +99,26 @@ export default function Login() {
       />
       <input
         className="input-field"
-        type="text"
+        type="number"
         value={telefone}
-        onChange={(e) => setTelefone(e.target.value)}
+        onChange={(e) => {
+          const value = Number(e.target.value);
+          if (!isNaN(value)) {
+            setTelefone(value);
+          }
+        }}
         placeholder="Número de Telefone"
       />
       <input
         className="input-field"
-        type="text"
+        type="number"
         value={cpf}
-        onChange={(e) => setCpf(e.target.value)}
+        onChange={(e) => {
+          const value = Number(e.target.value);
+          if (!isNaN(value)) {
+            setCpf(value);
+          }
+        }}
         placeholder="CPF"
       />
       <input
@@ -115,6 +131,10 @@ export default function Login() {
       <button className="register-button" onClick={Registrar}>
         Registrar
       </button>
+      <Link href="/login">
+        <button className="register-button">Login</button>
+      </Link>
+      <p>A senha deve conter no mínimo 6 dígitos</p> 
     </div>
   );
 }

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import {
   collection,
@@ -53,6 +53,7 @@ export default function Foods() {
     setFoods(
       data.docs.map((doc) => ({ ...doc.data(), id: doc.id } as FoodItem))
     );
+    window.location.reload();
   };
 
   const openEditModal = (food: FoodItem) => {
@@ -77,6 +78,7 @@ export default function Foods() {
     setFoods(
       data.docs.map((doc) => ({ ...doc.data(), id: doc.id } as FoodItem))
     );
+    window.location.reload();
   };
 
   const deleteFood = async (id: string) => {
@@ -90,16 +92,14 @@ export default function Foods() {
 
   return (
     <div className="container-foods">
-      <h1>Gerenciamento de Alimentos</h1>
+      <h1>Gerenciador de Alimentos</h1>
       <button className="add-food-button" onClick={() => setIsModalOpen(true)}>
         Adicionar Alimento
       </button>
       <Link href="/login">
-      <button className="add-food-button">
-        Sair
-      </button>
+        <button className="add-food-button">Sair</button>
       </Link>
-      
+
       <div className="food-grid">
         {foods.map((food) => (
           <div key={food.id} className="food-card">
@@ -141,11 +141,12 @@ export default function Foods() {
             <input
               type="number"
               placeholder="Preço"
-              value={newFood.price}
+              value={newFood.price === 0 ? "" : newFood.price}
               onChange={(e) =>
                 setNewFood({ ...newFood, price: Number(e.target.value) })
               }
             />
+
             <textarea
               placeholder="Descrição"
               value={newFood.description}

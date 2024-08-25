@@ -48,6 +48,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-bottom: 10px;
 }
 
 .register-button:hover {
@@ -86,4 +87,26 @@
   text-align: center;
   color: #228b22;
   font-weight: bold;
+}
+
+.message {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+
+.message.success {
+  color: #4caf50;
+}
+
+.message.error {
+  color: #f44336;
+}
+
+.loading-message {
+  text-align: center;
+  margin-top: 20px;
 }
