@@ -33,4 +33,5 @@ Seu projeto estará localmente hospedado no endereço: http://localhost:3000
 3. Firebase 
 4. Vercel
 
-##
+## Link do projeto no vercel
+https://teste-cf.vercel.app
