@@ -57,7 +57,10 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-right: 20px;
-  margin-bottom: 20px;
+}
+
+.add-food-button{
+  margin-bottom: 10px;
 }
 
 button:hover {
