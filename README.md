@@ -1,5 +1,5 @@
 # Introdução
-Esse é um sistema sobre controle de alimentos, usando next.js e hospedada no vercel. Desenvolvido para o teste tecnico da CF Sistemas. 
+Esse é um sistema sobre controle de alimentos, usando next.js e hospedado no vercel. Desenvolvido para o teste tecnico da CF Sistemas. 
 
 ## Modo de uso
 Ao abrir a plataforma registre-se ou logue como um usuário. Você será redirecionado para a página de comidas, onde é permitido: 
