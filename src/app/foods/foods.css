@@ -1,4 +1,4 @@
-/* Modal de adicionar e editar alimentos */
+
 .modal {
   position: fixed;
   top: 0;
@@ -11,44 +11,43 @@
   justify-content: center;
 }
 
-/* Conteúdo do modal */
+
 .modal-content {
   background-color: #f8f4ea;
   padding: 20px;
   border-radius: 8px;
   width: 500px;
-  max-width: 90%; /* Para garantir que o modal não ultrapasse a tela em dispositivos menores */
+  max-width: 90%; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; /* Inclui padding e border no cálculo da largura total */
+  box-sizing: border-box; 
 }
 
-/* Título dentro do modal */
+/
 .modal-content h2 {
   color: #7b3f00;
   margin-bottom: 20px;
 }
 
-/* Campos de entrada dentro do modal */
 input, select, textarea {
-  width: calc(100% - 22px); /* Ajuste para compensar o padding e border */
+  width: calc(100% - 22px); 
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
   background-color: #fff;
-  box-sizing: border-box; /* Inclui padding e border no cálculo da largura total */
+  box-sizing: border-box; 
 }
 
-/* Espaçamento entre os botões */
+
 .button-group {
   display: flex;
-  gap: 10px; /* Espaço entre os botões */
+  gap: 10px; 
 }
 
-/* Botões dentro do modal */
+
 button {
-  flex: 1; /* Faz os botões se ajustarem igualmente */
+  flex: 1; 
   padding: 12px;
   background-color: #7b3f00;
   color: white;
@@ -58,13 +57,14 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 button:hover {
   background-color: #603000;
 }
 
-/* Botão de cancelar com estilo diferente */
+
 button.cancel {
   background-color: #a0a0a0;
 }
@@ -74,22 +74,27 @@ button.cancel:hover {
 }
 
 
-/* Grid para exibir os alimentos */
+
+
 .food-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center; 
 }
 
-/* Cartão de cada alimento */
+
+
 .food-card {
   background-color: white;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: calc(33.333% - 20px); /* Três cards por linha, ajustado para o gap */
+  width: 100%;
+  max-width: 300px; 
   box-sizing: border-box;
+  margin-top: 20px;
 }
 
 .food-card h3 {
@@ -111,3 +116,21 @@ button.cancel:hover {
 .food-card button:hover {
   background-color: #603000;
 }
+
+
+.modal-content {
+  width: 90%;
+  max-width: 500px;
+}
+
+@media (max-width: 768px) {
+  .food-card {
+    width: 100%;
+    max-width: none;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
